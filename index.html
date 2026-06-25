@@ -3,123 +3,509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隐私政策 - RoomOrganizer</title>
+    <meta name="description" content="山阳五虎 SANYANGWUHU - 【一句话定位描述待填】">
+    <title>山阳五虎 · SANYANGWUHU</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --primary: #c2410c;
+            --primary-light: #ea580c;
+            --primary-dark: #7c2d12;
+            --ink: #1c1917;
+            --ink-soft: #44403c;
+            --bg: #fafaf9;
+            --card: #ffffff;
+            --border: #e7e5e4;
+            --muted: #78716c;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
+            color: var(--ink);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 960px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0 24px;
         }
-        h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        h2 {
-            font-size: 20px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        .last-updated {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        a {
-            color: #007aff;
-        }
-        footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 100px 0 80px;
             text-align: center;
-            color: #666;
+            background: linear-gradient(180deg, #fef3e2 0%, var(--bg) 100%);
+        }
+
+        .hero .brand {
+            display: inline-block;
+            font-size: 13px;
+            letter-spacing: 0.4em;
+            color: var(--primary);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: var(--ink-soft);
+            max-width: 620px;
+            margin: 0 auto 40px;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--ink);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .hero .cta:hover {
+            background: var(--primary);
+        }
+
+        /* ===== Section ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .section-sub {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* ===== About ===== */
+        .about {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 17px;
+            color: var(--ink-soft);
+            line-height: 1.85;
+        }
+
+        .about p {
+            margin-bottom: 16px;
+        }
+
+        /* ===== Five Tigers ===== */
+        .section-alt {
+            background: white;
+        }
+
+        .tigers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .tiger {
+            background: var(--card);
+            padding: 32px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .tiger:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .tiger .num {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            letter-spacing: 0.2em;
+        }
+
+        .tiger h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .tiger p {
+            color: var(--ink-soft);
             font-size: 14px;
         }
+
+        /* ===== Timeline ===== */
+        .timeline {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 90px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .milestone {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .milestone .date {
+            width: 90px;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: right;
+            padding-right: 24px;
+        }
+
+        .milestone .dot {
+            position: absolute;
+            left: 84px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg);
+        }
+
+        .milestone .content {
+            flex: 1;
+            padding-left: 36px;
+        }
+
+        .milestone h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--ink);
+        }
+
+        .milestone p {
+            color: var(--ink-soft);
+            font-size: 14px;
+        }
+
+        /* ===== Team ===== */
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .member {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(194, 65, 12, 0.2);
+        }
+
+        .member h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .member .role {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ===== Contact ===== */
+        .contact {
+            text-align: center;
+            background: var(--ink);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-sub {
+            color: #a8a29e;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 1px solid #44403c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 15px;
+        }
+
+        .contact-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 32px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            background: var(--ink);
+            color: #a8a29e;
+        }
+
+        /* ===== Mobile ===== */
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+            .hero {
+                padding: 60px 0 50px;
             }
-            h1 {
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero .tagline {
+                font-size: 16px;
+            }
+            section {
+                padding: 56px 0;
+            }
+            .section-title {
                 font-size: 24px;
+            }
+            .timeline::before {
+                left: 0;
+            }
+            .milestone {
+                flex-direction: column;
+            }
+            .milestone .date {
+                text-align: left;
+                padding-right: 0;
+                padding-left: 20px;
+            }
+            .milestone .dot {
+                left: -7px;
+            }
+            .milestone .content {
+                padding-left: 20px;
+                margin-top: 8px;
+            }
+            .about {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>隐私政策</h1>
-        <p class="last-updated">最后更新：2026年4月24日</p>
 
-        <p>RoomOrganizer（以下简称"我们"）非常重视您的隐私保护。本隐私政策旨在向您说明我们如何收集、使用、存储和保护您的个人信息。</p>
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="container">
+            <div class="brand">SANYANGWUHU</div>
+            <h1>山阳五虎</h1>
+            <p class="tagline">【一句话定位 — 让访客 3 秒知道这个项目是做什么的】</p>
+            <a href="#about" class="cta">了解更多 →</a>
+        </div>
+    </header>
 
-        <h2>一、信息收集与使用</h2>
-        <p>RoomOrganizer 是一款本地存储应用，主要用于帮助您管理房间、容器和物品信息。我们收集的信息仅限于：</p>
-        <ul>
-            <li>您主动输入的房间、容器、物品名称和描述</li>
-            <li>您在应用内设置的偏好配置</li>
-        </ul>
-        <p><strong>我们不会收集任何能够识别您身份的个人信息。</strong></p>
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">关于山阳五虎</h2>
+                <p class="section-sub">一段话讲清楚我们是谁、做什么、为什么做</p>
+            </div>
+            <div class="about">
+                <p>【项目介绍正文 — 写给第一次来的人：</p>
+                <p>① 我们解决什么问题 / 提供什么价值；</p>
+                <p>② 和现有方案有什么不一样 / 我们坚持的事；</p>
+                <p>③ 现在做到哪一步了、下一步往哪走。】</p>
+            </div>
+        </div>
+    </section>
 
-        <h2>二、数据存储</h2>
-        <p>您输入的所有数据均存储在您设备的本地数据库中。我们不会将您的数据上传至任何服务器或云端存储。所有数据由您自行管理。</p>
+    <!-- ===== FIVE TIGERS ===== -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">五虎</h2>
+                <p class="section-sub">【五个核心 — 可以是 5 个模块 / 5 个产品 / 5 个核心能力 / 5 位成员，看你怎么定义】</p>
+            </div>
+            <div class="tigers">
+                <div class="tiger">
+                    <div class="num">壹</div>
+                    <h3>【虎一】</h3>
+                    <p>【一句话说明这"虎"负责什么 / 代表什么】</p>
+                </div>
+                <div class="tiger">
+                    <div class="num">贰</div>
+                    <h3>【虎二】</h3>
+                    <p>【一句话说明这"虎"负责什么 / 代表什么】</p>
+                </div>
+                <div class="tiger">
+                    <div class="num">叁</div>
+                    <h3>【虎三】</h3>
+                    <p>【一句话说明这"虎"负责什么 / 代表什么】</p>
+                </div>
+                <div class="tiger">
+                    <div class="num">肆</div>
+                    <h3>【虎四】</h3>
+                    <p>【一句话说明这"虎"负责什么 / 代表什么】</p>
+                </div>
+                <div class="tiger">
+                    <div class="num">伍</div>
+                    <h3>【虎五】</h3>
+                    <p>【一句话说明这"虎"负责什么 / 代表什么】</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <h2>三、数据共享</h2>
-        <p>我们不会与任何第三方共享您的个人数据或使用信息。</p>
+    <!-- ===== TIMELINE ===== -->
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">路线图</h2>
+                <p class="section-sub">【关键节点 — 已经做到的、正在做的、计划做的】</p>
+            </div>
+            <div class="timeline">
+                <div class="milestone">
+                    <div class="date">【日期】</div>
+                    <div class="dot"></div>
+                    <div class="content">
+                        <h4>【里程碑标题】</h4>
+                        <p>【一句话说明这个节点发生了什么】</p>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="date">【日期】</div>
+                    <div class="dot"></div>
+                    <div class="content">
+                        <h4>【里程碑标题】</h4>
+                        <p>【一句话说明这个节点发生了什么】</p>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="date">【日期】</div>
+                    <div class="dot"></div>
+                    <div class="content">
+                        <h4>【里程碑标题】</h4>
+                        <p>【一句话说明这个节点发生了什么】</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <h2>四、数据安全</h2>
-        <p>我们采用业界标准的安全措施保护您的数据，包括数据加密和访问控制。但由于互联网传输的特殊性，我们无法保证数据在传输过程中百分百安全。</p>
+    <!-- ===== TEAM ===== -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">团队</h2>
+                <p class="section-sub">【如果"五虎"本身就是团队成员，这一节可以删掉；否则这里放项目核心成员】</p>
+            </div>
+            <div class="team">
+                <div class="member">
+                    <div class="avatar">A</div>
+                    <h4>【姓名 / 昵称】</h4>
+                    <div class="role">【角色】</div>
+                </div>
+                <div class="member">
+                    <div class="avatar">B</div>
+                    <h4>【姓名 / 昵称】</h4>
+                    <div class="role">【角色】</div>
+                </div>
+                <div class="member">
+                    <div class="avatar">C</div>
+                    <h4>【姓名 / 昵称】</h4>
+                    <div class="role">【角色】</div>
+                </div>
+            </div>
+            <p class="section-sub" style="margin-top: 32px;">如果只有你一个人，团队这一节也可以整体删掉</p>
+        </div>
+    </section>
 
-        <h2>五、用户权利</h2>
-        <p>您有权随时删除应用来清除所有本地存储的数据。在删除应用前，建议您备份重要信息。</p>
+    <!-- ===== CONTACT ===== -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <p class="section-sub">想合作 / 想聊 / 单纯想看看，欢迎来扰</p>
+            <div class="contact-links">
+                <a href="mailto:601422958@qq.com">📧 邮箱</a>
+                <a href="#" target="_blank">🐙 GitHub</a>
+                <a href="#" target="_blank">💬 微信</a>
+                <a href="#" target="_blank">🐦 推特 / X</a>
+            </div>
+        </div>
+    </section>
 
-        <h2>六、儿童隐私</h2>
-        <p>我们不会故意收集未满18周岁儿童的个人信息。</p>
+    <footer>
+        <div class="container">
+            <p>© 2026 山阳五虎 · SANYANGWUHU. All rights reserved.</p>
+        </div>
+    </footer>
 
-        <h2>七、第三方服务</h2>
-        <p>本应用使用以下第三方服务：</p>
-        <ul>
-            <li>SQLite.swift - 本地数据库存储</li>
-            <li>SnapKit - 界面布局支持</li>
-        </ul>
-        <p>这些服务均为本地库，不会收集或传输任何用户数据。</p>
-
-        <h2>八、隐私政策更新</h2>
-        <p>我们可能会不时更新本隐私政策。如有重大变更，我们会在应用内通知您。继续使用应用即表示您接受更新后的政策。</p>
-
-        <h2>九、联系我们</h2>
-        <p>如您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-        <p>邮箱：601422958@qq.com</p>
-
-        <footer>
-            <p>&copy; 2026 RoomOrganizer. 保留所有权利。</p>
-        </footer>
-    </div>
 </body>
 </html>
