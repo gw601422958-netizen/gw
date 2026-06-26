@@ -161,61 +161,6 @@
             transform: translateY(-0.05em);
         }
 
-        .tagline {
-            font-size: clamp(16px, 2.2vw, 21px);
-            color: var(--fg-soft);
-            max-width: 600px;
-            margin: 0 auto 48px;
-            opacity: 0;
-            animation: fadeUp 1s 0.6s forwards;
-        }
-
-        .actions {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 1s 0.8s forwards;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 999px;
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.25s;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #0a0a0a;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-2);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--accent-glow);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--fg);
-            border: 1px solid var(--border);
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--fg-soft);
-            transform: translateY(-2px);
-        }
-
         .scroll-hint {
             position: absolute;
             bottom: 40px;
@@ -298,7 +243,74 @@
             font-weight: 500;
         }
 
+        .about-slogan {
+            font-size: clamp(17px, 2.2vw, 21px);
+            font-weight: 500;
+            line-height: 1.75;
+            color: var(--fg);
+            letter-spacing: -0.005em;
+            margin-bottom: 20px;
+        }
+
+        .about-slogan .accent {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
         /* ===== FIVE TIGERS ===== */
+        .team-photo {
+            margin: 0 auto 64px;
+            text-align: center;
+            max-width: 720px;
+        }
+
+        .team-photo-frame {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s, border-color 0.3s;
+            background: var(--bg-2);
+        }
+
+        .team-photo-frame:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .team-photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .team-photo-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .team-photo figcaption {
+            margin-top: 20px;
+            color: var(--fg-soft);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+        }
+
         .tigers {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -345,6 +357,23 @@
             margin-bottom: 16px;
         }
 
+        .tiger .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .tiger:hover .avatar {
+            border-color: var(--accent);
+            transform: scale(1.06);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
         .tiger h3 {
             font-size: 22px;
             font-weight: 700;
@@ -356,6 +385,159 @@
             color: var(--fg-soft);
             font-size: 14px;
             line-height: 1.5;
+        }
+
+        /* ===== TRAVEL / CITIES ===== */
+        .city-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .city-tab {
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--fg-soft);
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .city-tab:hover {
+            color: var(--fg);
+            border-color: var(--fg-soft);
+        }
+
+        .city-tab.active {
+            background: var(--accent);
+            color: #0a0a0a;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .city-panel {
+            display: none;
+            animation: fadeUp 0.5s ease-out;
+        }
+
+        .city-panel.active {
+            display: block;
+        }
+
+        .city-head {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .city-head h3 {
+            font-size: clamp(28px, 4.5vw, 44px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .city-head .pin {
+            color: var(--accent);
+            font-family: "SF Mono", "Monaco", "Cascadia Mono", monospace;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+        }
+
+        .city-tagline {
+            color: var(--accent);
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .city-desc {
+            color: var(--fg-soft);
+            font-size: clamp(15px, 1.8vw, 17px);
+            line-height: 1.7;
+            max-width: 720px;
+            margin-bottom: 40px;
+        }
+
+        .city-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .city-col {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 28px 32px;
+            transition: border-color 0.3s;
+        }
+
+        .city-col:hover {
+            border-color: var(--accent);
+        }
+
+        .city-col h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .city-col h4 .ico {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--accent-glow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .city-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .city-col li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--fg);
+        }
+
+        .city-col li .dot {
+            color: var(--accent);
+            margin-top: 2px;
+            font-weight: 700;
+        }
+
+        .city-col li .name {
+            font-weight: 600;
+        }
+
+        .city-col li .desc {
+            color: var(--fg-soft);
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .city-cols {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ===== CTA / CONTACT ===== */
@@ -446,6 +628,7 @@
             <ul class="nav-links">
                 <li><a href="#about">关于</a></li>
                 <li><a href="#tigers">五虎</a></li>
+                <li><a href="#travel">出行</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div>
@@ -456,11 +639,6 @@
         <div class="container">
             <div class="eyebrow">SANYANGWUHU</div>
             <h1>五虎<span class="accent">.</span>出击</h1>
-            <p class="tagline">【一句话定位 — 让访客 3 秒知道这个项目是做什么的】</p>
-            <div class="actions">
-                <a href="#contact" class="btn btn-primary">下载 v1.0 →</a>
-                <a href="#about" class="btn btn-ghost">了解更多</a>
-            </div>
             <div class="scroll-hint">SCROLL</div>
         </div>
     </header>
@@ -473,11 +651,15 @@
                 <h2>关于山阳五虎</h2>
             </div>
             <div class="about reveal">
-                <p>【项目介绍正文 — 写给第一次来的人：</p>
-                <p>① 我们解决什么问题 / 提供什么价值；</p>
-                <p>② 和现有方案的差异 / 我们坚持的事；</p>
-                <p>③ 现在做到哪一步、下一步往哪走。】</p>
+                <p class="about-slogan">山阳五虎，<span class="accent">少年</span>出击，路还长，咱们边走边写。</p>
             </div>
+            <figure class="team-photo reveal">
+                <div class="team-photo-frame">
+                    <span class="team-photo-badge">TEAM · 五虎</span>
+                    <img src="images/team.jpg" alt="山阳五虎 团队合影" loading="lazy">
+                </div>
+                <figcaption>山阳五虎 · 团队合影 · 【拍摄时间地点待填】</figcaption>
+            </figure>
         </div>
     </section>
 
@@ -490,29 +672,186 @@
             </div>
             <div class="tigers reveal">
                 <div class="tiger">
+                    <img class="avatar" src="images/tiger-5.jpg" alt="虎一" loading="lazy">
                     <div class="num">壹</div>
                     <h3>【虎一】</h3>
-                    <p>【一句话说明这"虎"负责什么】</p>
+                    <p>等他自己说</p>
                 </div>
                 <div class="tiger">
+                    <img class="avatar" src="images/tiger-2.jpg" alt="虎二" loading="lazy">
                     <div class="num">贰</div>
                     <h3>【虎二】</h3>
-                    <p>【一句话说明这"虎"负责什么】</p>
+                    <p>等他自己说</p>
                 </div>
                 <div class="tiger">
+                    <img class="avatar" src="images/tiger-4.jpg" alt="虎三" loading="lazy">
                     <div class="num">叁</div>
                     <h3>【虎三】</h3>
-                    <p>【一句话说明这"虎"负责什么】</p>
+                    <p>等他自己说</p>
                 </div>
                 <div class="tiger">
+                    <img class="avatar" src="images/tiger-3.jpg" alt="虎四" loading="lazy">
                     <div class="num">肆</div>
                     <h3>【虎四】</h3>
-                    <p>【一句话说明这"虎"负责什么】</p>
+                    <p>等他自己说</p>
                 </div>
                 <div class="tiger">
+                    <img class="avatar" src="images/tiger-1.jpg" alt="虎五" loading="lazy">
                     <div class="num">伍</div>
                     <h3>【虎五】</h3>
-                    <p>【一句话说明这"虎"负责什么】</p>
+                    <p>等他自己说</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRAVEL ===== -->
+    <section id="travel">
+        <div class="container">
+            <div class="section-head reveal">
+                <div class="num">/ 03</div>
+                <h2>出行攻略</h2>
+            </div>
+
+            <div class="city-tabs reveal" role="tablist">
+                <button class="city-tab active" data-target="shanyang" role="tab">山阳</button>
+                <button class="city-tab" data-target="xian" role="tab">西安</button>
+                <button class="city-tab" data-target="beijing" role="tab">北京</button>
+                <button class="city-tab" data-target="chengdu" role="tab">成都</button>
+            </div>
+
+            <div class="city-panels reveal">
+                <!-- 山阳 -->
+                <div class="city-panel active" data-panel="shanyang">
+                    <div class="city-head">
+                        <h3>山阳县</h3>
+                        <span class="pin">SHAANXI · 33.53°N 109.88°E</span>
+                    </div>
+                    <div class="city-tagline">秦岭腹地 · 革命老区 · 山水秘境</div>
+                    <p class="city-desc">陕东南的小城，藏在秦岭褶皱里。漫川关的明清老街、天竺山的云海日出、金钱河的清冽山泉，节奏比西安慢两档，适合周末和家人来一场"无目的"的深呼吸。</p>
+                    <div class="city-cols">
+                        <div class="city-col">
+                            <h4><span class="ico">⛰️</span>风景</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">天竺山</span><br><span class="desc">国家 4A，秦岭云海、日出奇观，山顶有道教遗迹。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">月亮洞</span><br><span class="desc">天竺山脚下喀斯特溶洞，洞内钟乳千姿百态。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">漫川古镇</span><br><span class="desc">明清会馆建筑群，陕西南大门，骡帮商道遗韵。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">苍龙岭森林公园</span><br><span class="desc">森林覆盖率 95%+，夏季均温 22℃，避暑圣地。</span></span></li>
+                            </ul>
+                        </div>
+                        <div class="city-col">
+                            <h4><span class="ico">🍜</span>美食</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">山阳搅团</span><br><span class="desc">玉米面打制，配蒜汁辣油，地道农家味。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">腊肉炒粉条</span><br><span class="desc">秦岭土猪腊肉，烟熏味浓，配红薯粉一绝。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">橡子凉粉</span><br><span class="desc">橡子粉手工制作，Q 弹爽滑，夏日解暑神器。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">浆水面</span><br><span class="desc">陕南家常，酸浆发酵醒神，配手擀面。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">神仙凉粉</span><br><span class="desc">糜子杆搓制，天然果冻感，配辣油醋汁。</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 西安 -->
+                <div class="city-panel" data-panel="xian">
+                    <div class="city-head">
+                        <h3>西安市</h3>
+                        <span class="pin">SHAANXI · 34.27°N 108.95°E</span>
+                    </div>
+                    <div class="city-tagline">十三朝古都 · 碳水之都 · 唐风汉韵</div>
+                    <p class="city-desc">"一座长安城，半部中华史"。城墙根下的老茶馆、回民街的烟火气、大唐不夜城的霓虹——这座城既能在博物馆里硬刚千年，也能在凌晨两点的夜市里把你喂得走不动路。</p>
+                    <div class="city-cols">
+                        <div class="city-col">
+                            <h4><span class="ico">🏯</span>风景</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">兵马俑</span><br><span class="desc">世界第八大奇迹，建议租电子讲解，3 小时打底。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">西安城墙</span><br><span class="desc">保存最完整的古城墙，骑行一圈 14km，城楼看落日。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">大雁塔 / 大唐不夜城</span><br><span class="desc">夜景天花板，免费演出和 NPC 沉浸互动。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">华清宫 · 骊山</span><br><span class="desc">《长恨歌》实景演出地，离市区 30km 一日游。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">陕西历史博物馆</span><br><span class="desc">何家村窖藏、兽首玛瑙杯，免费但要提前预约。</span></span></li>
+                            </ul>
+                        </div>
+                        <div class="city-col">
+                            <h4><span class="ico">🥟</span>美食</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">肉夹馍</span><br><span class="desc">腊汁肉炖得入口即化，馍外酥内软，秦豫两派各有所长。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">羊肉泡馍</span><br><span class="desc">自己掰馍是关键，掰越小越入味，配糖蒜解腻。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">biangbiang 面</span><br><span class="desc">裤带宽面，辣油葱花，简单粗暴的碳水快乐。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">凉皮 / 肉夹馍 / 冰峰</span><br><span class="desc">"三秦套餐"，碳水 + 碳水的快乐组合。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">葫芦鸡</span><br><span class="desc">陕菜代表，皮酥肉嫩，西安饭庄和樊记最经典。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">回民街 → 永兴坊</span><br><span class="desc">游客选回民街，本地人选永兴坊，摔碗酒网红地。</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 北京 -->
+                <div class="city-panel" data-panel="beijing">
+                    <div class="city-head">
+                        <h3>北京市</h3>
+                        <span class="pin">BEIJING · 39.90°N 116.40°E</span>
+                    </div>
+                    <div class="city-tagline">千年皇城 · 中轴线 · 胡同烟火</div>
+                    <p class="city-desc">从紫禁城的红墙黄瓦到 CBD 的玻璃幕墙，这座城新旧交叠。清晨天安门广场升旗、傍晚什刹海胡同遛弯、深夜簋街撸串——每条街都有自己的一套时间表。</p>
+                    <div class="city-cols">
+                        <div class="city-col">
+                            <h4><span class="ico">🏛️</span>风景</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">故宫</span><br><span class="desc">提前 7 天预约，钟表馆 / 珍宝馆强烈推荐加票。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">慕田峪长城</span><br><span class="desc">比八达岭人少景美，包车一日游或公交直达。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">颐和园 · 圆明园</span><br><span class="desc">皇家园林双壁，颐和园走长廊到佛香阁看昆明湖。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">南锣鼓巷 / 什刹海</span><br><span class="desc">胡同游，恭王府、烟袋斜街、后海酒吧街一线。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">国家博物馆</span><br><span class="desc">免费但要预约，后母戊鼎、孝端皇后凤冠必看。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">798 艺术区</span><br><span class="desc">老厂房改造的当代艺术地标，拍照打卡两相宜。</span></span></li>
+                            </ul>
+                        </div>
+                        <div class="city-col">
+                            <h4><span class="ico">🦆</span>美食</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">北京烤鸭</span><br><span class="desc">全聚德 / 便宜坊老字号，大董 / 四季民福排队首选。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">炸酱面</span><br><span class="desc">老北京炸酱面馆遍地都是，菜码齐全才地道。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">涮羊肉</span><br><span class="desc">铜锅清汤 + 麻酱小料，东来顺、聚宝源常年排队。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">卤煮火烧</span><br><span class="desc">猪肠猪肺配死面饼，重口味深夜食堂代表。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">豆汁儿 + 焦圈</span><br><span class="desc">老北京"黑暗料理"，勇敢者的早餐。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">簋街小龙虾</span><br><span class="desc">麻辣、蒜蓉、油焖三派，麻小配啤酒的夏天标配。</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 成都 -->
+                <div class="city-panel" data-panel="chengdu">
+                    <div class="city-head">
+                        <h3>成都市</h3>
+                        <span class="pin">SICHUAN · 30.57°N 104.07°E</span>
+                    </div>
+                    <div class="city-tagline">天府之国 · 火锅之城 · 慢生活之都</div>
+                    <p class="city-desc">"少不入川，老不出蜀"。宽窄巷子的盖碗茶、人民公园的掏耳朵、春熙路的时尚辣妹、青城山的清晨薄雾——成都把"舒服"两个字刻进了骨子里，来了就不想走。</p>
+                    <div class="city-cols">
+                        <div class="city-col">
+                            <h4><span class="ico">🐼</span>风景</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">大熊猫繁育研究基地</span><br><span class="desc">7:30 开园最佳，看完月亮产房后从后山逛。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">宽窄巷子 / 锦里</span><br><span class="desc">宽窄巷子偏文创，锦里偏小吃，晚上灯笼亮起最出片。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">武侯祠 / 杜甫草堂</span><br><span class="desc">三国 + 诗圣两大 IP，红墙竹影打卡圣地。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">都江堰 · 青城山</span><br><span class="desc">一日游经典组合，世界文化遗产 + 道教名山。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">春熙路 / 太古里</span><br><span class="desc">现代成都核心，IFS 熊猫屁股、太古里裸眼 3D。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">人民公园</span><br><span class="desc">鹤鸣茶社喝盖碗茶、看老成都掏耳朵，市中心慢生活样本。</span></span></li>
+                            </ul>
+                        </div>
+                        <div class="city-col">
+                            <h4><span class="ico">🌶️</span>美食</h4>
+                            <ul>
+                                <li><span class="dot">·</span><span><span class="name">火锅</span><br><span class="desc">蜀大侠、小龙坎、电台巷火锅，鸳鸯锅救外地人。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">串串香 / 钵钵鸡</span><br><span class="desc">冷锅钵钵鸡（叶婆婆、藤椒味）比热锅串串更易上手。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">麻婆豆腐</span><br><span class="desc">陈麻婆豆腐百年老店，麻辣烫酥四大要素齐活。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">夫妻肺片</span><br><span class="desc">红油拌牛肉杂碎，下酒神器，廖老妈、盘飧市出名。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">钟水饺 / 龙抄手 / 担担面</span><br><span class="desc">成都小吃三件套，复制四川味道。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">肥肠粉 + 锅盔</span><br><span class="desc">甘记、白家高记，红薯粉 + 冒节子，配酥脆锅盔。</span></span></li>
+                                <li><span class="dot">·</span><span><span class="name">双流老妈兔头</span><br><span class="desc">五香 / 麻辣两派，啃兔头配冰啤酒是地道夜宵。</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -558,6 +897,26 @@
         });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 城市 tab 切换
+        const tabs = document.querySelectorAll('.city-tab');
+        const panels = document.querySelectorAll('.city-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.target;
+                tabs.forEach(t => t.classList.toggle('active', t === tab));
+                panels.forEach(p => {
+                    if (p.dataset.panel === target) {
+                        // 触发重启动画
+                        p.classList.remove('active');
+                        void p.offsetWidth;
+                        p.classList.add('active');
+                    } else {
+                        p.classList.remove('active');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
